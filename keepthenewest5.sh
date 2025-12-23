@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Usage: keepthenewest5.sh <LOGDIR> <DEST> <FILENAME_PATTERN>
-# Example: keepthenewest5.sh /var/log /tmp "FILE*.log"
+# Example: keepthenewest5.sh /var/tmp /tmp "FILE*.log"
 
-LOGDIR="$1"
-DEST="$2"
-PATTERN="$3"
+LOGDIR="${1:-/var/tmp}"
+DEST="${2:-/tmp}"
+PATTERN="${3:-file*.log}"
 
 # Validate input
 if [[ -z "$LOGDIR" || -z "$DEST" || -z "$PATTERN" ]]; then
@@ -47,3 +47,4 @@ for ((i=5; i<${#files[@]}; i++)); do
 done
 
 echo "Done."
+
