@@ -19,7 +19,7 @@ fi
 # Compress logs older than COMPRESSION_DAYS and not already compressed
 find "$LOGDIR" \
   -type f \
-  -name "*.log" \
+  -name "*.log*" \
   ! -name "*.gz" \
   -mtime +"$COMPRESSION_DAYS" \
   -exec gzip {} \;
